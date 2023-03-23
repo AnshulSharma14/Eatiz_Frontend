@@ -5,6 +5,7 @@ import Signin from './pages/Signin.vue'
 import Signup from './pages/Signup.vue'
 import Google from './pages/Google.vue'
 import ResetPassword from './pages/ResetPassword.vue'
+import Profile from './pages/Profile.vue'
 
 
 const routerHistory = createWebHistory()
@@ -14,7 +15,7 @@ const router = createRouter({
   routes: [
     {
       path: '/dashboard',
-      component: Dashboard
+      component: Profile
     },
     {
       path: '/',

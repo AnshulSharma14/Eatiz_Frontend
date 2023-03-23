@@ -1,5 +1,5 @@
 
-export const ApiURL = "http://localhost:2023/";//"https://api-server.eatiz.org/"
+export const ApiURL = "https://api-server.eatiz.org/"
 export const Services = {
         "Signup":{
           "path":"auth/signup/",

@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 bg-white border-b border-slate-200 z-30">
+  <header class="sticky top-0 bg-white z-30">
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 -mb-px">
 
@@ -64,6 +64,13 @@ export default {
     Notifications,
     Help,
     UserMenu,
+  },
+  mounted(){
+   let user = sessionStorage.getItem("user");
+   console.log(user);
+   if(user== null && user==""){
+      this.$router.push('/');
+   }
   },
   setup() {
     const searchModalOpen = ref(false)
