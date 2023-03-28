@@ -84,7 +84,7 @@ export default {
         axios.get(getAPIUrl(Services.GetUserAccountDetail)+this.user.userId, getRequestHeaders())
         .then(response => {
           this.user = response.data.users; 
-          sessionStorage.setItem('user',this.user); 
+          sessionStorage.setItem('user',JSON.stringify(this.user)); 
           console.log(this.user)     
         })
         .catch(error => {
