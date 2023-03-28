@@ -193,7 +193,7 @@
               </li>
             </router-link> 
 
-             <router-link to="/logout" custom v-slot="{ href, navigate, isExactActive }">
+             <a  href="#" @click="collapse()">
               <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0" :class="isExactActive && 'theme-bg'">
                 <a class="block text-black truncate transition duration-150" :class="isExactActive ? 'hover:text-white' : 'hover:text-black'" :href="href" @click="navigate">
                   <div class="flex items-center float-right">
@@ -209,7 +209,7 @@
                   </div>
                 </a>
               </li>
-            </router-link> 
+            </a> 
                     
             <!-- Components  -->
 
@@ -248,6 +248,12 @@ export default {
   components: {
     SidebarLinkGroup,
   },  
+  methods:{
+   collapse(){
+     console.log("clicked")
+      this.sidebarExpanded = !this.sidebarExpanded
+   }
+  },
   setup(props, { emit }) {
 
     const trigger = ref(null)

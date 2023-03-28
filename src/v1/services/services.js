@@ -35,7 +35,7 @@ export const Services = {
           "method":"GET"
         },
         "GetUserAccountDetail":{
-          "path":"public/account",
+          "path":"user/detail/",
           "method":"GET"
         }
         
@@ -45,4 +45,13 @@ export const Services = {
 export const getAPIUrl = (service) =>{
     return ApiURL+service.path;
 
+}
+
+export const getRequestHeaders = ()=>{
+   return {
+    headers: {
+      'Authorization': 'Bearer ' +  sessionStorage.getItem("accessToken"),
+      'Content-Type': 'application/json'
+    }
+  }
 }

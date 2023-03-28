@@ -2,8 +2,8 @@
   <div class="px-5 grow flex flex-col md:translate-x-0 transition-transform duration-300 ease-in-out" :class="profileSidebarOpen ? 'translate-x-1/3' : 'translate-x-0'">
 
     <!-- Profile background -->
-    <div class="relative h-56 bg-slate-200">
-      <img class="object-cover h-full w-full" src="../../images/profile-bg.jpg" width="979" height="220" alt="Profile background" />
+    <div class="relative h-56 bg-white">
+      <img class="object-cover h-full w-full rounded-md" src="../../images/profile-bg.jpg" width="979" height="220" alt="Profile background" />
       <!-- Close button -->
       <button
         class="md:hidden absolute top-4 left-4 sm:left-6 text-white opacity-80 hover:opacity-100"
@@ -41,15 +41,17 @@
               </svg>
             </button>
             <button class="p-1.5 shrink-0 rounded border border-slate-200 hover:border-slate-300 shadow-sm">
-              <svg class="w-4 h-4 fill-current text-indigo-500" viewBox="0 0 16 16">
-                <path d="M8 0C3.6 0 0 3.1 0 7s3.6 7 8 7h.6l5.4 2v-4.4c1.2-1.2 2-2.8 2-4.6 0-3.9-3.6-7-8-7Zm4 10.8v2.3L8.9 12H8c-3.3 0-6-2.2-6-5s2.7-5 6-5 6 2.2 6 5c0 2.2-2 3.8-2 3.8Z" />
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-hipchat" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#33cc66" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M17.802 17.292s.077 -.055 .2 -.149c1.843 -1.425 2.998 -3.49 2.998 -5.789c0 -4.286 -4.03 -7.764 -8.998 -7.764c-4.97 0 -9.002 3.478 -9.002 7.764c0 4.288 4.03 7.646 9 7.646c.424 0 1.12 -.028 2.088 -.084c1.262 .82 3.104 1.493 4.716 1.493c.499 0 .734 -.41 .414 -.828c-.486 -.596 -1.156 -1.551 -1.416 -2.29z" />
+                
               </svg>
             </button>
-            <button class="btn-sm bg-indigo-500 hover:bg-indigo-600 text-white">
+            <button class="btn-sm theme-bg text-white">
               <svg class="fill-current shrink-0" width="11" height="8" viewBox="0 0 11 8">
                 <path d="m.457 4.516.969-.99 2.516 2.481L9.266.702l.985.99-6.309 6.284z" />
               </svg>
-              <span class="ml-2">Following</span>
+              <span class="ml-2">Identity</span>
             </button>
           </div>
 
@@ -61,26 +63,24 @@
       <header class="text-center sm:text-left mb-6">
         <!-- Name -->
         <div class="inline-flex items-start mb-2">
-          <h1 class="text-2xl text-slate-800 font-bold">Carolyn McNeail</h1>
-          <svg class="w-4 h-4 fill-current shrink-0 text-amber-500 ml-2" viewBox="0 0 16 16">
-            <path d="M13 6a.75.75 0 0 1-.75-.75 1.5 1.5 0 0 0-1.5-1.5.75.75 0 1 1 0-1.5 1.5 1.5 0 0 0 1.5-1.5.75.75 0 1 1 1.5 0 1.5 1.5 0 0 0 1.5 1.5.75.75 0 1 1 0 1.5 1.5 1.5 0 0 0-1.5 1.5A.75.75 0 0 1 13 6ZM6 16a1 1 0 0 1-1-1 4 4 0 0 0-4-4 1 1 0 0 1 0-2 4 4 0 0 0 4-4 1 1 0 1 1 2 0 4 4 0 0 0 4 4 1 1 0 0 1 0 2 4 4 0 0 0-4 4 1 1 0 0 1-1 1Z" />
-          </svg>
+          <h1 class="text-2xl text-slate-800 font-bold">{{user.firstname}} {{user.lastname}}</h1>
+         
         </div>
         <!-- Bio -->
-        <div class="text-sm mb-3">Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.</div>
+        <div class="text-sm mb-3">{{user.jobTitle}}</div>
         <!-- Meta -->
         <div class="flex flex-wrap justify-center sm:justify-start space-x-4">
           <div class="flex items-center">
             <svg class="w-4 h-4 fill-current shrink-0 text-slate-400" viewBox="0 0 16 16">
               <path d="M8 8.992a2 2 0 1 1-.002-3.998A2 2 0 0 1 8 8.992Zm-.7 6.694c-.1-.1-4.2-3.696-4.2-3.796C1.7 10.69 1 8.892 1 6.994 1 3.097 4.1 0 8 0s7 3.097 7 6.994c0 1.898-.7 3.697-2.1 4.996-.1.1-4.1 3.696-4.2 3.796-.4.3-1 .3-1.4-.1Zm-2.7-4.995L8 13.688l3.4-2.997c1-1 1.6-2.198 1.6-3.597 0-2.798-2.2-4.996-5-4.996S3 4.196 3 6.994c0 1.399.6 2.698 1.6 3.697 0-.1 0-.1 0 0Z" />
             </svg>
-            <span class="text-sm font-medium whitespace-nowrap text-slate-500 ml-2">Milan, IT</span>
+            <span class="text-sm font-medium whitespace-nowrap text-slate-500 ml-2">{{(user.address)?user.address.city:""}}, {{(user.address)?user.address.state:""}}</span>
           </div>
           <div class="flex items-center">
             <svg class="w-4 h-4 fill-current shrink-0 text-slate-400" viewBox="0 0 16 16">
               <path d="M11 0c1.3 0 2.6.5 3.5 1.5 1 .9 1.5 2.2 1.5 3.5 0 1.3-.5 2.6-1.4 3.5l-1.2 1.2c-.2.2-.5.3-.7.3-.2 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l1.1-1.2c.6-.5.9-1.3.9-2.1s-.3-1.6-.9-2.2C12 1.7 10 1.7 8.9 2.8L7.7 4c-.4.4-1 .4-1.4 0-.4-.4-.4-1 0-1.4l1.2-1.1C8.4.5 9.7 0 11 0ZM8.3 12c.4-.4 1-.5 1.4-.1.4.4.4 1 0 1.4l-1.2 1.2C7.6 15.5 6.3 16 5 16c-1.3 0-2.6-.5-3.5-1.5C.5 13.6 0 12.3 0 11c0-1.3.5-2.6 1.5-3.5l1.1-1.2c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4L2.9 8.9c-.6.5-.9 1.3-.9 2.1s.3 1.6.9 2.2c1.1 1.1 3.1 1.1 4.2 0L8.3 12Zm1.1-6.8c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-4.2 4.2c-.2.2-.5.3-.7.3-.2 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l4.2-4.2Z" />
             </svg>
-            <a class="text-sm font-medium whitespace-nowrap text-indigo-500 hover:text-indigo-600 ml-2" href="#0">carolinmcneail.com</a>
+            <a class="text-sm font-medium whitespace-nowrap theme-color hover:text-indigo-600 ml-2" href="#0">{{user.website}}</a>
           </div>
         </div>
       </header>
@@ -90,13 +90,13 @@
         <div class="absolute bottom-0 w-full h-px bg-slate-200" aria-hidden="true"></div>
         <ul class="relative text-sm font-medium flex flex-nowrap -mx-4 sm:-mx-6 lg:-mx-8 overflow-x-scroll no-scrollbar">
           <li class="mr-6 last:mr-0 first:pl-4 sm:first:pl-6 lg:first:pl-8 last:pr-4 sm:last:pr-6 lg:last:pr-8">
-            <a class="block pb-3 text-indigo-500 whitespace-nowrap border-b-2 border-indigo-500" href="#0">General</a>
+            <a :class="currentTab=='aboutMe' ? 'theme-color theme-border border-b-2':'text-slate-500'" @click="()=>{ currentTab='aboutMe' }" class="block pb-3  whitespace-nowrap " href="#aboutMe">About Me</a>
           </li>
           <li class="mr-6 last:mr-0 first:pl-4 sm:first:pl-6 lg:first:pl-8 last:pr-4 sm:last:pr-6 lg:last:pr-8">
-            <a class="block pb-3 text-slate-500 hover:text-slate-600 whitespace-nowrap" href="#0">Connections</a>
+            <a :class="currentTab=='listings' ? 'theme-color theme-border border-b-2':'text-slate-500'" @click="()=>{ currentTab='listings' }" class="block pb-3   whitespace-nowrap" href="#listings">Listings</a>
           </li>
           <li class="mr-6 last:mr-0 first:pl-4 sm:first:pl-6 lg:first:pl-8 last:pr-4 sm:last:pr-6 lg:last:pr-8">
-            <a class="block pb-3 text-slate-500 hover:text-slate-600 whitespace-nowrap" href="#0">Contributions</a>
+            <a :class="currentTab=='reviews' ? 'theme-color theme-border border-b-2':'text-slate-500'" @click="()=>{ currentTab='reviews' }" class="block pb-3  whitespace-nowrap" href="#reviews">Reviews</a>
           </li>
         </ul>
       </div>
@@ -109,16 +109,15 @@
 
           <!-- About Me -->
           <div>
-            <h2 class="text-slate-800 font-semibold mb-2">About Me</h2>
+            <h2 class="text-slate-800 font-semibold mb-2" id="aboutMe">About Me</h2>
             <div class="text-sm space-y-2">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-              <p>Consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.</p>
+              <p>{{user.aboutMe}}</p>
             </div>
           </div>
 
           <!-- Departments -->
           <div>
-            <h2 class="text-slate-800 font-semibold mb-2">Departments</h2>
+            <h2 class="text-slate-800 font-semibold mb-2" id="listings">Listings</h2>
             <!-- Cards -->
             <div class="grid xl:grid-cols-2 gap-4">
 
@@ -159,7 +158,7 @@
                     <img class="ml-1" src="../../images/icon-02.svg" width="14" height="14" alt="Icon 02" />
                   </div>
                   <div class="truncate">
-                    <span class="text-sm font-medium text-slate-800">Acme Product</span>
+                    <span class="text-sm font-medium text-slate-800">Reviews</span>
                   </div>
                 </div>
                 <!-- Card content -->
@@ -185,7 +184,7 @@
 
           <!-- Work History -->
           <div>
-            <h2 class="text-slate-800 font-semibold mb-2">Work History</h2>
+            <h2 class="text-slate-800 font-semibold mb-2" id="reviews">Reviews</h2>
             <div class="bg-white p-4 border border-slate-200 rounded-sm shadow-sm">
               <ul class="space-y-3">
 
@@ -293,26 +292,26 @@
 
         <!-- Sidebar -->
         <aside class="xl:min-w-56 xl:w-56 space-y-3">
-          <div class="text-sm">
+          <!-- <div class="text-sm">
             <h3 class="font-medium text-slate-800">Title</h3>
-            <div>Senior Product Designer</div>
+            <div>{{user.jobTitle}}</div>
           </div>
           <div class="text-sm">
             <h3 class="font-medium text-slate-800">Location</h3>
-            <div>Milan, IT - Remote</div>
+            <div>{{user.address && user.address.city}}, {{user.address && user.address.state}}</div>
           </div>
           <div class="text-sm">
             <h3 class="font-medium text-slate-800">Email</h3>
-            <div>carolinmcneail@acme.com</div>
+            <div>{{user.email}}</div>
           </div>
           <div class="text-sm">
             <h3 class="font-medium text-slate-800">Birthdate</h3>
-            <div>4 April, 1987</div>
+            <div>{{user.DOB && getDOB(user.DOB)}}</div>
           </div>
           <div class="text-sm">
             <h3 class="font-medium text-slate-800">Joined Acme</h3>
             <div>7 April, 2017</div>
-          </div>
+          </div> -->
         </aside>
 
       </div>
@@ -323,8 +322,23 @@
 </template>
 
 <script>
+import format from 'date-format';
 export default {
   name: 'ProfileBody',
-  props: ['profileSidebarOpen'],
+  props: ['profileSidebarOpen','user'],
+  data(){
+   return{
+     currentTab:"aboutMe"
+   }
+  },
+  mounted(){
+   
+   
+  },
+  methods:{
+    getDOB(dob){
+       return format('dd-MM-yyyy', new Date(dob));
+    }
+  }
 }
 </script>

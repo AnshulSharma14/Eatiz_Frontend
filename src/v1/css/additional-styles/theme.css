@@ -22,6 +22,10 @@
 .theme-color-fill{
     fill: #33cc66!important;
 }
+.theme-border{
+    border-color:#33cc66!important;
+}
+
 .theme-bg{
     background-color:#33cc66!important;
 }
