@@ -81,10 +81,19 @@ export default {
   data:function(){
      return {
        user:{
-        email: "",
-        password: "",
-        token: "HCAPTCHA_TOKEN"
-       },
+            password: "",
+            token: "HCAPTCHA_TOKEN",
+            accessToken: "",
+            refreshToken: "",
+            userId: "",
+            accessTokenExpiry: "",
+            refreshTokenExpiry: "",
+            email: "",
+            phoneNumber: null,
+            googleAuthEnabled: false,
+            appleAuthEnabled: false,
+            otpAuthEnabled: false
+        },
        loader:false,
      }
   },
@@ -93,7 +102,17 @@ export default {
        this.loader =true;
         axios.post(getAPIUrl(Services.SignIn), this.user)
           .then(response => {
-            console.log(response.data);
+           
+            let user = response.data;
+            this.user.email = user.email;
+            this.user.accessToken = user.accessToken;
+            this.user.userId = user.userId;
+            this.user.refreshToken = user.refreshToken;
+
+             console.log(JSON.stringify(this.user));
+             sessionStorage.setItem("user",JSON.stringify(this.user));
+             sessionStorage.setItem("accessToken", user.accessToken);
+             sessionStorage.setItem("isLogedIn",true)
              this.$router.push('/dashboard');
              this.loader =false;
           })
@@ -101,19 +120,6 @@ export default {
             console.error(error);
               this.loader =false;
           });
-      },
-      login: function () {
-        this.$auth.login({ email, password }).then(function () {
-        console.log("login")
-          // Execute application logic after successful login
-        })
-      },
-
-      register: function () {
-        this.$auth.register({ name, email, password }).then(function () {
-         console.log("login")
-          // Execute application logic after successful registration
-        })
       }
   }
 }

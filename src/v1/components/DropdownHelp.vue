@@ -9,9 +9,13 @@
       :aria-expanded="dropdownOpen"
     >
       <span class="sr-only">Info</span>
-      <svg class="w-4 h-4" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-        <path class="fill-current text-slate-500" d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 12c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1zm1-3H7V4h2v5z" />
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#33cc66" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <circle cx="12" cy="12" r="9" />
+        <line x1="12" y1="8" x2="12.01" y2="8" />
+        <polyline points="11 12 12 12 12 16 13 16" />
       </svg>
+     
     </button>
     <transition
       enter-active-class="transition ease-out duration-200 transform"
