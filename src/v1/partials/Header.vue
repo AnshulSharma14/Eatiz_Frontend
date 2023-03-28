@@ -72,17 +72,7 @@ export default {
    }
   },
   mounted(){
-    try{
-       this.profile = JSON.parse(sessionStorage.getItem("user"));
-       if(this.profile==null){
-          sessionStorage.clear();
-          this.$router.push('/');
-       }
-    }catch(e){
-      console.log(e)
-      sessionStorage.clear();
-      this.$router.push('/');
-    }
+ 
   },
   setup() {
     const searchModalOpen = ref(false)

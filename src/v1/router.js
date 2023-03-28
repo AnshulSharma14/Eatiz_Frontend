@@ -15,7 +15,10 @@ const router = createRouter({
   routes: [
     {
       path: '/dashboard',
-      component: Profile
+      component: Profile,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/',
@@ -39,6 +42,22 @@ const router = createRouter({
       component: PageNotFound
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+ 
+  let isAuthenticated = sessionStorage.getItem("isLogedIn") /* Check if user has an active session */
+  isAuthenticated = (isAuthenticated==null || isAuthenticated=='false' )?false:true;
+  console.log(isAuthenticated);
+  if ((to.path === '/'|| to.name === '/signup') && isAuthenticated) {
+    next({ path: '/dashboard' })
+  } 
+  else if (to.matched.some(record => record.meta.requiresAuth) && !isAuthenticated) {
+    next({ path: '/' })
+  } 
+  else {
+    next()
+  }
 })
 
 export default router
