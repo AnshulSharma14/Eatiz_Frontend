@@ -6,7 +6,9 @@ import Signup from './pages/Signup.vue'
 import Google from './pages/Google.vue'
 import ResetPassword from './pages/ResetPassword.vue'
 import Profile from './pages/Profile.vue'
-
+import Account from './pages/settings/Account.vue'
+import NotificationsPanel from './pages/settings/Notifications.vue'
+import AppPanel from './pages/settings/Apps.vue'
 
 const routerHistory = createWebHistory()
 
@@ -19,6 +21,7 @@ const router = createRouter({
       meta: {
         requiresAuth: true
       }
+    
     },
     {
       path: '/',
@@ -36,7 +39,22 @@ const router = createRouter({
       path: '/reset-password',
       component: ResetPassword
     },
-
+    {
+      path: '/settings/account',
+      component: Account,
+      meta: {
+        requiresAuth: true
+      }
+    },
+      {
+        path:'/settings/notifications',
+        component:NotificationsPanel,
+      },
+      {
+        path:'/settings/apps',
+        component:AppPanel
+      },
+      
     {
       path: '/:pathMatch(.*)*',
       component: PageNotFound
