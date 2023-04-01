@@ -63,7 +63,8 @@ export default {
     try{
     this.user = JSON.parse(sessionStorage.getItem("user"));
     console.log(this.user.userId)
-    this.getUserProfile();
+    // if(this.user.userId!=undefined)
+      this.getUserProfile();
     }catch( e){
       console.log(e)
     }
@@ -81,7 +82,8 @@ export default {
   },
   methods:{
     getUserProfile:function(){
-        axios.get(getAPIUrl(Services.GetUserAccountDetail)+this.user.userId, getRequestHeaders())
+        let id= this.user.userId ?? this.user.id
+        axios.get(getAPIUrl(Services.GetUserAccountDetail)+id, getRequestHeaders())
         .then(response => {
           this.user = response.data.users; 
           sessionStorage.setItem('user',JSON.stringify(this.user)); 

@@ -1,5 +1,5 @@
 
-export const ApiURL = "https://api-server.eatiz.org/"
+export const ApiURL = "https://api-server.eatiz.org/" //"http:localhost:2023/"//
 export const Services = {
         "Signup":{
           "path":"auth/signup/",
@@ -37,8 +37,19 @@ export const Services = {
         "GetUserAccountDetail":{
           "path":"user/detail/",
           "method":"GET"
+        },
+        "UpdateUserProfile":{
+          "path":"user/update/",
+          "method":"PUT"
+        },
+        "UpdateUserPassword":{
+          "path":"user/update/password/",
+          "method":"PUT"
+        },
+        "UpdateProfileImage":{
+          "path":"user/update/image/",
+          "method":"PUT"
         }
-        
 }
 
 
