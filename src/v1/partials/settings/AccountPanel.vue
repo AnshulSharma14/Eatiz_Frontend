@@ -169,6 +169,7 @@ import ModalBasic from './../../components/ModalBasic.vue'
 import axios from 'axios'
 import {getAPIUrl, Services, getRequestHeaders} from './../../services/services'
 import Toast from './../../components/Toast.vue'
+import { compressAndConvertToBase64 } from './../../utils/Utils'
 export default {
  name: 'AccountPanel',
 
@@ -329,17 +330,18 @@ export default {
                 return false;
              }
        },
-       onFileChange(e) {
+      async onFileChange(e) {
           const file = e.target.files[0];
           if (!file) {
             return;
           }
-          const reader = new FileReader();
-          reader.readAsDataURL(file);
-          reader.onload = () => {
-            this.file = file;
-            this.base64Image = reader.result;
-          };
+          this.base64Image = await compressAndConvertToBase64(file, 100, 100);
+          // const reader = new FileReader();
+          // reader.readAsDataURL(file);
+          // reader.onload = () => {
+          //   this.file = file;
+          //   this.base64Image = reader.result;
+          // };
         },
         async uploadImage() {
           const formData = new FormData();

@@ -9,7 +9,8 @@ import Profile from './pages/Profile.vue'
 import Account from './pages/settings/Account.vue'
 import NotificationsPanel from './pages/settings/Notifications.vue'
 import AppPanel from './pages/settings/Apps.vue'
-
+import Shop2 from './pages/ecommerce/Shop2.vue'
+import Settings from './pages/settings/Setting.vue'
 const routerHistory = createWebHistory()
 
 const router = createRouter({
@@ -40,21 +41,37 @@ const router = createRouter({
       component: ResetPassword
     },
     {
-      path: '/settings/account',
-      component: Account,
+      path: '/settings',
+      component: Settings,
+      name:'settings',
+      meta: {
+        requiresAuth: true
+      },
+      children: [
+        {
+          path: 'account',
+          name: 'account',
+          component: Account
+        },
+        {
+          path:'notifications',
+          name: 'notifications',
+          component: NotificationsPanel
+        },
+        {
+          path:'apps',
+          name: 'wishlist',
+          component:AppPanel
+        },
+      ]
+    },
+    {
+      path:'/explore',
+      component: Shop2,
       meta: {
         requiresAuth: true
       }
-    },
-      {
-        path:'/settings/notifications',
-        component:NotificationsPanel,
-      },
-      {
-        path:'/settings/apps',
-        component:AppPanel
-      },
-      
+    },      
     {
       path: '/:pathMatch(.*)*',
       component: PageNotFound

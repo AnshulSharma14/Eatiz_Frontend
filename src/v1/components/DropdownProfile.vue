@@ -7,7 +7,7 @@
       @click.prevent="dropdownOpen = !dropdownOpen"
       :aria-expanded="dropdownOpen"
     >
-      <img class="w-8 h-8 rounded-full" :src="UserAvatar" width="32" height="32" alt="User" />
+      <img class="w-8 h-8 rounded-full" :src="user.image?user.image.data:''" width="32" height="32" alt="User" />
       <div class="flex items-center truncate">
         <span class="truncate ml-2 text-sm font-medium group-hover:text-slate-800">{{user.firstname}} {{user.lastname}}</span>
         <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-slate-400" viewBox="0 0 12 12">
@@ -55,11 +55,10 @@ export default {
   data() {
     return {
       UserAvatar: UserAvatar,
-      user:""
     }
   },  
   mounted(){
-   
+    console.log(this.user)
   },
   setup() {
 

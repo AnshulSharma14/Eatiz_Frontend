@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 bg-white z-30">
+  <header class="sticky top-0 bg-white z-30 border-b-2 border-dashed">
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 -mb-px">
 
@@ -72,7 +72,7 @@ export default {
    }
   },
   mounted(){
- 
+     console.log(this.user)
   },
   setup() {
     const searchModalOpen = ref(false)
