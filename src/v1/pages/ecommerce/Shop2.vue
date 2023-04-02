@@ -33,21 +33,6 @@
               <!-- Filters -->
               <div class="mb-5">
                 <ul class="flex flex-wrap -m-1">
-                  <!-- <li class="m-1 filter">
-                    <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-slate-200 hover:border-slate-300 shadow-sm theme-bg text-white duration-150 ease-in-out" @click="handleFilters($event)">View All</button>
-                  </li>
-                  <li class="m-1 filter">
-                    <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-slate-200 hover:border-slate-300 shadow-sm bg-white text-slate-500 duration-150 ease-in-out" @click="handleFilters($event)">Featured</button>
-                  </li>
-                  <li class="m-1 filter">
-                    <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-slate-200 hover:border-slate-300 shadow-sm bg-white text-slate-500 duration-150 ease-in-out" @click="handleFilters($event)">Newest</button>
-                  </li>
-                  <li class="m-1 filter">
-                    <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-slate-200 hover:border-slate-300 shadow-sm bg-white text-slate-500 duration-150 ease-in-out" @click="handleFilters($event)">Price - Low To High</button>
-                  </li>
-                  <li class="m-1 filter">
-                    <button class="inline-flex items-center justify-center text-sm font-medium leading-5 rounded-full px-3 py-1 border border-slate-200 hover:border-slate-300 shadow-sm bg-white text-slate-500 duration-150 ease-in-out" @click="handleFilters($event)">Price - High to Low</button>
-                  </li> -->
                    <li v-for="(child, index) in children"
                       :key="index"
                       class="m-1">

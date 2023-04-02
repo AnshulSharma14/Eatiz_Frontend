@@ -49,6 +49,10 @@ export const Services = {
         "UpdateProfileImage":{
           "path":"user/update/image/",
           "method":"PUT"
+        },
+        "GetAssetList":{
+          "path":"asset/search",
+          "method":"POST"
         }
 }
 
